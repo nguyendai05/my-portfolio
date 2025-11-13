@@ -1,54 +1,140 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Portfolio() {
   const projects = [
     {
-      title: "Project Name",
-      category: "Web Design",
-      image: "/images/project-1.jpg",
+      title: "Digital Experience",
+      category: "Web Design & Development",
+      description: "Immersive brand experience with advanced motion design",
+      year: "2024",
     },
-    // Add more projects
+    {
+      title: "Interactive Platform",
+      category: "UI/UX & Animation",
+      description: "Pioneering interface with bespoke interactions",
+      year: "2024",
+    },
+    {
+      title: "Creative Studio",
+      category: "Digital Design",
+      description: "Motion-driven portfolio showcasing visual storytelling",
+      year: "2023",
+    },
+    {
+      title: "Brand System",
+      category: "Experience Design",
+      description: "Comprehensive digital identity with animated elements",
+      year: "2023",
+    },
   ];
 
   return (
-    <section id="work" className="section-padding">
+    <section id="work" className="section-padding bg-black border-t border-white/10">
       <div className="container-custom">
-        <h2 className="font-display text-display-md font-bold mb-12 text-center">
-          Selected <span className="text-accent">Work</span>
-        </h2>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-4 block">
+            Selected Work
+          </span>
+          <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] font-light tracking-tight">
+            Recent
+            <br />
+            <span className="text-stroke">Projects</span>
+          </h2>
+        </motion.div>
+
+        {/* Projects List */}
+        <div className="space-y-1">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative aspect-square overflow-hidden"
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 
-                         group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 transition-opacity 
-                            duration-300 group-hover:opacity-100 flex items-center 
-                            justify-center flex-col gap-2 p-6 text-center">
-                <h3 className="font-display text-2xl font-bold">{project.title}</h3>
-                <p className="text-accent text-sm uppercase tracking-wider">
-                  {project.category}
-                </p>
-              </div>
-            </motion.div>
+            <ProjectItem key={index} project={project} index={index} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectItem({ project, index }: { project: any; index: number }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group"
+    >
+      <a
+        href="#"
+        className="block border-t border-white/10 py-8 hover:bg-white/[0.02] transition-colors duration-500"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+          {/* Index */}
+          <div className="hidden md:block md:col-span-1">
+            <span className="text-sm text-white/30 font-light">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Title */}
+          <div className="md:col-span-5">
+            <motion.h3
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-light tracking-tight group-hover:translate-x-2 transition-transform duration-500"
+            >
+              {project.title}
+            </motion.h3>
+          </div>
+
+          {/* Category & Description */}
+          <div className="md:col-span-4">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-2">
+              {project.category}
+            </p>
+            <p className="text-sm text-white/60 font-light leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          {/* Year & Arrow */}
+          <div className="md:col-span-2 flex items-center justify-between md:justify-end gap-4">
+            <span className="text-sm text-white/40 font-light">
+              {project.year}
+            </span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </a>
+    </motion.div>
   );
 }

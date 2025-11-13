@@ -13,8 +13,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name - Creative Portfolio",
-  description: "Experience designer, developer, and creative technologist",
+  title: "Mantis - Experience Studio",
+  description: "Where motion and animation are central. Shaping pioneering interfaces for the web for over twenty years.",
 };
 
 export default function RootLayout({

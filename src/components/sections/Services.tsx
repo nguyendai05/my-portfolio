@@ -1,106 +1,111 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Sparkles, Code, Palette } from "lucide-react";
 
 export default function Services() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   const services = [
     {
-      icon: Sparkles,
-      title: "Experiential",
+      number: "01",
+      title: "Digital Design & Development",
       description:
-        "We build to inspire, but also build to code. Design is only as strong as its function.",
-      items: [
-        "Architecture & Fabrication",
-        "Spatial Design",
-        "Interactive Technology",
-        "On-Site Production",
-      ],
-    },
-    {
-      icon: Code,
-      title: "Digital",
-      description:
-        "Full-service digital experiences from concept to deployment. Built to perform flawlessly.",
-      items: [
-        "Web Development",
-        "3D & Real-time Content",
-        "Motion & Animation",
+        "We create experiences that anticipate what users want and need, paired with intuitive interfaces that support those actions. Working with technologists—equal parts developer and artist.",
+      capabilities: [
+        "Experience Design",
         "Interface Design",
+        "Web Development",
+        "Interactive Technology",
       ],
     },
     {
-      icon: Palette,
-      title: "Brand",
+      number: "02",
+      title: "Motion & Animation",
       description:
-        "Your look, your legacy. Brand identity that defines perception and creates memory.",
-      items: [
-        "Strategy & Campaign",
-        "Brand Identity",
-        "Content Production",
-        "Creative Direction",
+        "We collaborate with world-class motion artists who understand movement as one of the most powerful communication tools. Whether constructing entire worlds or animating static designs.",
+      capabilities: [
+        "Motion Design",
+        "3D Animation",
+        "Visual Effects",
+        "Interactive Motion",
+      ],
+    },
+    {
+      number: "03",
+      title: "Bespoke Experiences",
+      description:
+        "We don't rely on best practices. Each project begins from scratch to create systems that are genuinely bespoke. A digital experience is only as good as it functions.",
+      capabilities: [
+        "Custom Solutions",
+        "Creative Technology",
+        "Performance Optimization",
+        "System Architecture",
       ],
     },
   ];
 
   return (
-    <section id="services" className="section-padding bg-black" ref={ref}>
+    <section id="services" className="section-padding bg-black border-t border-white/10">
       <div className="container-custom">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-20 text-center"
+          viewport={{ once: true }}
+          className="mb-32"
         >
-          <h2 className="font-display text-display-md font-bold mb-6">
-            we excite <span className="text-accent">neurons</span>
+          <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-4 block">
+            What We Do
+          </span>
+          <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] font-light tracking-tight max-w-4xl">
+            Motion and animation
+            <br />
+            are <span className="text-stroke">central</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="group relative border border-muted/20 p-8 transition-all duration-300 
-                         hover:border-accent"
-              >
-                <div className="mb-6 inline-flex rounded-full bg-accent/10 p-4">
-                  <Icon className="text-accent" size={32} />
-                </div>
+        {/* Services Grid */}
+        <div className="space-y-24 md:space-y-32">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid md:grid-cols-12 gap-8 md:gap-12 border-t border-white/10 pt-8"
+            >
+              {/* Number */}
+              <div className="md:col-span-2">
+                <span className="text-6xl md:text-7xl font-light text-white/10">
+                  {service.number}
+                </span>
+              </div>
 
-                <h3 className="font-display text-3xl font-bold mb-4 uppercase tracking-tight">
+              {/* Content */}
+              <div className="md:col-span-10">
+                <h3 className="font-display text-3xl md:text-5xl font-light tracking-tight mb-6">
                   {service.title}
                 </h3>
 
-                <p className="text-muted mb-6 leading-relaxed">
+                <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-8 max-w-3xl">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2">
-                  {service.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-muted">
-                      <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      {item}
-                    </li>
+                {/* Capabilities */}
+                <div className="flex flex-wrap gap-3">
+                  {service.capabilities.map((capability, i) => (
+                    <span
+                      key={i}
+                      className="text-xs uppercase tracking-[0.15em] text-white/40 border border-white/10 px-4 py-2 hover:border-white/30 hover:text-white/60 transition-colors duration-300"
+                    >
+                      {capability}
+                    </span>
                   ))}
-                </ul>
-
-                {/* Hover effect */}
-                <div className="absolute inset-0 -z-10 bg-accent/5 opacity-0 transition-opacity 
-                              duration-300 group-hover:opacity-100" />
-              </motion.div>
-            );
-          })}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

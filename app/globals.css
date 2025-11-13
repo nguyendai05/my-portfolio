@@ -5,9 +5,9 @@
 @layer base {
   :root {
     --background: 0 0% 0%;
-    --foreground: 0 0% 85%;
-    --accent: 108 100% 55%;
-    --border: 0 0% 20%;
+    --foreground: 0 0% 100%;
+    --accent: 0 0% 100%;
+    --border: 0 0% 15%;
   }
 
   * {
@@ -16,16 +16,18 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
   /* Custom scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -33,32 +35,43 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #3DFF17;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2ed612;
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 
 @layer components {
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-24 md:py-40;
   }
 
   .container-custom {
-    @apply mx-auto max-w-7xl px-6 md:px-12;
+    @apply mx-auto max-w-7xl px-6 md:px-12 lg:px-16;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-accent to-green-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-none border-2 border-accent 
-           bg-transparent px-8 py-4 text-sm font-semibold uppercase tracking-wider 
-           text-accent transition-all duration-300 hover:bg-accent hover:text-black;
+    @apply inline-flex items-center gap-3 rounded-none border border-white/20
+           bg-transparent px-8 py-4 text-sm font-light uppercase tracking-[0.2em]
+           text-white/80 transition-all duration-300 hover:bg-white hover:text-black
+           hover:border-white;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
   }
 }
 
