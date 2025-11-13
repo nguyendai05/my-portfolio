@@ -5,12 +5,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-light mb-4">Mantis</h3>
+            <h3 className="text-2xl font-light mb-4">Dizan</h3>
             <p className="text-sm text-white/40 font-light">
               Experience Studio
             </p>
           </div>
-
           {/* Links */}
           <div>
             <div className="text-xs uppercase tracking-[0.15em] text-white/40 mb-4">
@@ -39,10 +38,10 @@ export default function Footer() {
             </div>
             <div className="space-y-2">
               <a
-                href="mailto:hello@mantis.works"
+                href="mailto:hello@dizan.works"
                 className="block text-sm text-white/60 hover:text-white transition-colors duration-300"
               >
-                hello@mantis.works
+                hello@dizan.works
               </a>
             </div>
           </div>
@@ -51,7 +50,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-white/30 font-light">
-            © {new Date().getFullYear()} Mantis. All rights reserved.
+            © {new Date().getFullYear()} Dizan. All rights reserved.
           </p>
           <p className="text-xs text-white/30 font-light">
             Crafted with precision

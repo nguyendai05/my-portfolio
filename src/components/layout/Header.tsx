@@ -36,7 +36,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="relative group">
           <span className="text-xl md:text-2xl font-light tracking-tight">
-            Mantis
+          Dizan
           </span>
           <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500" />
         </Link>

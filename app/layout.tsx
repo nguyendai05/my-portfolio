@@ -13,7 +13,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Mantis - Experience Studio",
+  title: "Dizan - Experience Studio",
   description: "Where motion and animation are central. Shaping pioneering interfaces for the web for over twenty years.",
 };
 

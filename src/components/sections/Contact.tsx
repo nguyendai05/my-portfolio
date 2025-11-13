@@ -33,11 +33,11 @@ export default function Contact() {
               </p>
 
               <a
-                href="mailto:hello@mantis.works"
+                href="mailto:hello@dizan.works"
                 className="group inline-flex items-center gap-3 text-2xl md:text-3xl font-light hover:text-white/80 transition-colors duration-300"
               >
                 <span className="relative">
-                  hello@mantis.works
+                  hello@dizan.works
                   <span className="absolute -bottom-1 left-0 w-full h-px bg-white/20 group-hover:bg-white transition-colors duration-300" />
                 </span>
               </a>
