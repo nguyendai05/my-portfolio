@@ -1,65 +1,95 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black" />
-      
-      {/* Accent glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-accent/10 blur-[120px] rounded-full" />
+    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-radial from-white/[0.03] via-transparent to-transparent" />
 
       {/* Content */}
-      <div className="container-custom relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h1 className="font-display text-display-lg md:text-display-xl font-bold mb-6">
-            we create
-            <br />
-            <span className="text-gradient">experiences</span>
-          </h1>
-        </motion.div>
+      <motion.div
+        style={{ y, opacity }}
+        className="container-custom relative z-10"
+      >
+        <div className="max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          >
+            <motion.h1
+              className="font-display text-[clamp(3rem,12vw,10rem)] leading-[0.9] font-light tracking-tight mb-8"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
+            >
+              Experience
+              <br />
+              <span className="text-stroke">Studio</span>
+            </motion.h1>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-muted max-w-3xl mx-auto mb-12"
-        >
-          Great design doesn't just guide behavior.
-          <br />
-          It speaks directly to the nervous system.
-        </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8, ease: [0.33, 1, 0.68, 1] }}
+            className="max-w-2xl"
+          >
+            <p className="text-lg md:text-xl text-white/60 leading-relaxed font-light">
+              Where motion and animation are central. We shape pioneering
+              interfaces for the web, creating experiences that anticipate
+              what users want and need.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <a href="#about" className="btn-primary">
-            Explore Our Work
-          </a>
-        </motion.div>
-      </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="mt-16 flex items-center gap-8"
+          >
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors duration-300"
+            >
+              <span className="relative">
+                View Work
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500" />
+              </span>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="group-hover:translate-x-1 transition-transform duration-300">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
         >
-          <ArrowDown className="text-accent" size={32} />
+          <span className="text-xs uppercase tracking-[0.2em] text-white/40">Scroll</span>
+          <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
         </motion.div>
       </motion.div>
     </section>

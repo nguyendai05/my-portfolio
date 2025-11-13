@@ -1,67 +1,95 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 
 export default function Contact() {
-  const socialLinks = [
-    { icon: Mail, href: "mailto:your@email.com", label: "Email" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-  ];
-
   return (
-    <section id="contact" className="section-padding bg-black">
+    <section id="contact" className="section-padding bg-black border-t border-white/10">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-display-md font-bold mb-6">
-              Let's Create
-              <br />
-              <span className="text-accent">Something Amazing</span>
-            </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-5xl"
+        >
+          <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-8 block">
+            Get in Touch
+          </span>
 
-            <p className="text-xl text-muted mb-12 max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can bring your vision to life.
-            </p>
+          <h2 className="font-display text-[clamp(3rem,10vw,8rem)] leading-[0.9] font-light tracking-tight mb-12">
+            Let's create
+            <br />
+            <span className="text-stroke">together</span>
+          </h2>
 
-            <a href="mailto:your@email.com" className="btn-primary text-lg">
-              Get in Touch
-            </a>
-          </motion.div>
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+            {/* Left Column - CTA */}
+            <div>
+              <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed mb-8">
+                Ready to bring your vision to life? Whether you're looking to
+                create a new digital experience or enhance an existing one,
+                we're here to help.
+              </p>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-16 flex justify-center gap-6"
-          >
-            {socialLinks.map((link, index) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative p-4 border border-muted/20 transition-all 
-                           duration-300 hover:border-accent"
-                  aria-label={link.label}
-                >
-                  <Icon className="text-muted transition-colors group-hover:text-accent" size={24} />
-                </a>
-              );
-            })}
-          </motion.div>
-        </div>
+              <a
+                href="mailto:hello@mantis.works"
+                className="group inline-flex items-center gap-3 text-2xl md:text-3xl font-light hover:text-white/80 transition-colors duration-300"
+              >
+                <span className="relative">
+                  hello@mantis.works
+                  <span className="absolute -bottom-1 left-0 w-full h-px bg-white/20 group-hover:bg-white transition-colors duration-300" />
+                </span>
+              </a>
+            </div>
+
+            {/* Right Column - Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <div className="text-xs uppercase tracking-[0.15em] text-white/40 mb-3">
+                  Follow
+                </div>
+                <div className="space-y-2">
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-lg font-light text-white/60 hover:text-white transition-colors duration-300"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-lg font-light text-white/60 hover:text-white transition-colors duration-300"
+                  >
+                    Twitter
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-lg font-light text-white/60 hover:text-white transition-colors duration-300"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs uppercase tracking-[0.15em] text-white/40 mb-3">
+                  Location
+                </div>
+                <p className="text-lg font-light text-white/60">
+                  Based globally
+                  <br />
+                  Working worldwide
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
