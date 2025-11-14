@@ -30,11 +30,16 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #000; /* Nền đen cơ sở cho toàn bộ trang */
   }
 
   body {
-    @apply bg-black text-foreground;
+    @apply bg-transparent text-foreground; 
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* CẬP NHẬT: Xóa `position: relative` và `z-index: 1`
+      Chúng ta sẽ xử lý stacking context trên các component cụ thể
+      như <main> và <Footer> để kiểm soát tốt hơn.
+    */
   }
 
   /* Custom scrollbar */

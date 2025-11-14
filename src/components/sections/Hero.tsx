@@ -14,7 +14,11 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section 
+      ref={containerRef} 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      // ĐÃ XÓA: bg-black
+    >
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-radial from-white/[0.03] via-transparent to-transparent" />
 
