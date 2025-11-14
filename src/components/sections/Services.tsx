@@ -7,44 +7,37 @@ export default function Services() {
   const services = [
     {
       number: "01",
-      title: "Digital Design & Development",
+      title: "Front-End Development",
       description:
-        "We create experiences that anticipate what users want and need, paired with intuitive interfaces that support those actions. Working with technologists—equal parts developer and artist.",
-      capabilities: [
-        "Experience Design",
-        "Interface Design",
-        "Web Development",
-        "Interactive Technology",
-      ],
+        "I build responsive and interactive user interfaces using modern libraries like React and Next.js. I focus on creating pixel-perfect designs that provide a seamless user experience across all devices.",
+      capabilities: ["React.js", "Next.js", "Tailwind CSS", "TypeScript"],
     },
     {
       number: "02",
-      title: "Motion & Animation",
+      title: "Back-End Development",
       description:
-        "We collaborate with world-class motion artists who understand movement as one of the most powerful communication tools. Whether constructing entire worlds or animating static designs.",
-      capabilities: [
-        "Motion Design",
-        "3D Animation",
-        "Visual Effects",
-        "Interactive Motion",
-      ],
+        "I develop robust and scalable server-side applications, build RESTful APIs, and manage databases. I am experienced with Node.js, Express, and databases like PostgreSQL and MongoDB.",
+      capabilities: ["Node.js", "Express.js", "REST APIs", "PostgreSQL", "MongoDB"],
     },
     {
       number: "03",
-      title: "Bespoke Experiences",
+      title: "Full-Stack Solutions",
       description:
-        "We don't rely on best practices. Each project begins from scratch to create systems that are genuinely bespoke. A digital experience is only as good as it functions.",
+        "I combine my front-end and back-end skills to deliver complete, end-to-end web applications. From the initial concept and database design to deployment and maintenance.",
       capabilities: [
-        "Custom Solutions",
-        "Creative Technology",
-        "Performance Optimization",
-        "System Architecture",
+        "Full-Stack Architecture",
+        "Database Design",
+        "CI/CD",
+        "Vercel / AWS",
       ],
     },
   ];
 
   return (
-    <section id="services" className="section-padding bg-black border-t border-white/10">
+    <section
+      id="services"
+      className="section-padding bg-black border-t border-white/10"
+    >
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -55,12 +48,12 @@ export default function Services() {
           className="mb-32"
         >
           <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-4 block">
-            What We Do
+            What I Do
           </span>
           <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] font-light tracking-tight max-w-4xl">
-            Motion and animation
+            From Code
             <br />
-            are <span className="text-stroke">central</span>
+            to <span className="text-stroke">Solution</span>
           </h2>
         </motion.div>
 

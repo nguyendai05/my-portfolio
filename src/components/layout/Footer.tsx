@@ -1,13 +1,13 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black py-12 md:py-16">
+    <footer className="relative z-10 isolate border-t border-white/10 bg-black py-12 md:py-16">
       <div className="container-custom">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-light mb-4">Dizan</h3>
             <p className="text-sm text-white/40 font-light">
-              Experience Studio
+              Developer
             </p>
           </div>
           {/* Links */}
@@ -41,7 +41,7 @@ export default function Footer() {
                 href="mailto:hello@dizan.works"
                 className="block text-sm text-white/60 hover:text-white transition-colors duration-300"
               >
-                hello@dizan.works
+                xunidizan@gmail.com
               </a>
             </div>
           </div>

@@ -7,15 +7,15 @@ export default function Hero() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       // ĐÃ XÓA: bg-black
     >
@@ -39,9 +39,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.33, 1, 0.68, 1] }}
             >
-              Experience
+              I am
               <br />
-              <span className="text-stroke">Studio</span>
+              <span className="text-stroke">Developer</span>
             </motion.h1>
           </motion.div>
 
@@ -52,9 +52,9 @@ export default function Hero() {
             className="max-w-2xl"
           >
             <p className="text-lg md:text-xl text-white/60 leading-relaxed font-light">
-              Where motion and animation are central. We shape pioneering
-              interfaces for the web, creating experiences that anticipate
-              what users want and need.
+              Information Technology student specializing in full-stack web
+              development. I build modern, responsive, and efficient
+              applications with a focus on user experience and clean code.
             </p>
           </motion.div>
 
@@ -72,8 +72,20 @@ export default function Hero() {
                 View Work
                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-500" />
               </span>
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="group-hover:translate-x-1 transition-transform duration-300">
-                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                className="group-hover:translate-x-1 transition-transform duration-300"
+              >
+                <path
+                  d="M4 10H16M16 10L11 5M16 10L11 15"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
           </motion.div>
@@ -92,7 +104,9 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs uppercase tracking-[0.2em] text-white/40">Scroll</span>
+          <span className="text-xs uppercase tracking-[0.2em] text-white/40">
+            Scroll
+          </span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent" />
         </motion.div>
       </motion.div>

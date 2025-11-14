@@ -6,33 +6,40 @@ import { useRef } from "react";
 export default function Portfolio() {
   const projects = [
     {
-      title: "Digital Experience",
-      category: "Web Design & Development",
-      description: "Immersive brand experience with advanced motion design",
+      title: "E-commerce Platform",
+      category: "Full-Stack Development",
+      description:
+        "A complete e-commerce site built with Next.js, Stripe for payments, and PostgreSQL.",
       year: "2024",
     },
     {
-      title: "Interactive Platform",
-      category: "UI/UX & Animation",
-      description: "Pioneering interface with bespoke interactions",
+      title: "Social Media App",
+      category: "Front-End & Back-End",
+      description:
+        "A social media dashboard featuring real-time updates with WebSocket and a React-based interface.",
       year: "2024",
     },
     {
-      title: "Creative Studio",
-      category: "Digital Design",
-      description: "Motion-driven portfolio showcasing visual storytelling",
+      title: "Portfolio Website",
+      category: "Front-End Development",
+      description:
+        "This very portfolio, built with Next.js, Tailwind CSS, and Framer Motion for smooth animations.",
       year: "2023",
     },
     {
-      title: "Brand System",
-      category: "Experience Design",
-      description: "Comprehensive digital identity with animated elements",
+      title: "Task Management Tool",
+      category: "Full-Stack Development",
+      description:
+        "A collaborative task manager with drag-and-drop functionality, built using React and Node.js.",
       year: "2023",
     },
   ];
 
   return (
-    <section id="work" className="section-padding bg-black border-t border-white/10">
+    <section
+      id="work"
+      className="section-padding bg-black border-t border-white/10"
+    >
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -43,7 +50,7 @@ export default function Portfolio() {
           className="mb-24"
         >
           <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-4 block">
-            Selected Work
+            My Projects
           </span>
           <h2 className="font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] font-light tracking-tight">
             Recent
@@ -67,7 +74,7 @@ function ProjectItem({ project, index }: { project: any; index: number }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
@@ -89,15 +96,13 @@ function ProjectItem({ project, index }: { project: any; index: number }) {
           {/* Index */}
           <div className="hidden md:block md:col-span-1">
             <span className="text-sm text-white/30 font-light">
-              {String(index + 1).padStart(2, '0')}
+              {String(index + 1).padStart(2, "0")}
             </span>
           </div>
 
           {/* Title */}
           <div className="md:col-span-5">
-            <motion.h3
-              className="font-display text-3xl md:text-4xl lg:text-5xl font-light tracking-tight group-hover:translate-x-2 transition-transform duration-500"
-            >
+            <motion.h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-light tracking-tight group-hover:translate-x-2 transition-transform duration-500">
               {project.title}
             </motion.h3>
           </div>

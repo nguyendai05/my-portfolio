@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="section-padding bg-black border-t border-white/10">
+    <section
+      id="about"
+      className="section-padding bg-black border-t border-white/10"
+    >
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
           {/* Left Column - Title */}
@@ -15,12 +18,12 @@ export default function About() {
             viewport={{ once: true }}
           >
             <span className="text-sm uppercase tracking-[0.2em] text-white/40 mb-4 block">
-              Experience at the Core
+              About Me
             </span>
             <h2 className="font-display text-[clamp(2.5rem,6vw,4rem)] leading-[0.95] font-light tracking-tight">
-              Shaping pioneering
+              Passionate
               <br />
-              <span className="text-stroke">interfaces</span>
+              <span className="text-stroke">Problem Solver</span>
             </h2>
           </motion.div>
 
@@ -33,29 +36,31 @@ export default function About() {
             className="space-y-8"
           >
             <p className="text-lg md:text-xl text-white/80 font-light leading-relaxed">
-              For over twenty years, we've been at the forefront of digital
-              experience design. We don't rely on best practices—each project
-              begins from scratch to create systems that are genuinely bespoke.
+              I am Dizan, an Information Technology student currently pursuing my
+              degree. I am deeply passionate about software development, from
+              front-end design to back-end logic. I thrive on learning new
+              technologies and applying them to solve real-world problems.
             </p>
 
             <p className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-              We work with world-class motion artists and technologists who
-              understand that a digital experience is only as good as it
-              functions. Development is a critical collaborator in our process.
+              My goal is to leverage my skills in modern frameworks like React,
+              Next.js, and Node.js to build applications that are not only
+              functional but also intuitive and engaging. I am a strong believer
+              in collaborative development and continuous improvement.
             </p>
 
             <div className="pt-8 border-t border-white/10">
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <div className="text-4xl md:text-5xl font-light mb-2">20+</div>
+                  <div className="text-4xl md:text-5xl font-light mb-2">3+</div>
                   <div className="text-sm text-white/40 uppercase tracking-[0.15em]">
-                    Years Experience
+                    Years Learning
                   </div>
                 </div>
                 <div>
-                  <div className="text-4xl md:text-5xl font-light mb-2">100+</div>
+                  <div className="text-4xl md:text-5xl font-light mb-2">10+</div>
                   <div className="text-sm text-white/40 uppercase tracking-[0.15em]">
-                    Projects Delivered
+                    Personal Projects
                   </div>
                 </div>
               </div>
